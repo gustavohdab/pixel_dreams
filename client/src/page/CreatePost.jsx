@@ -31,7 +31,7 @@ const CreatePost = () => {
         setGeneratingImg(true)
         const response = await fetch(
           `
-        http://localhost:8080/api/v1/dalle
+        https://pixel-dreams.onrender.com/api/v1/dalle
         `,
           {
             method: "POST",
@@ -67,13 +67,16 @@ const CreatePost = () => {
     setLoading(true)
 
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/post`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...form }),
-      })
+      const response = await fetch(
+        `https://pixel-dreams.onrender.com/api/v1/post`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...form }),
+        }
+      )
 
       await response.json()
       alert("Successfully created post")
